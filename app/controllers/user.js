@@ -1,5 +1,7 @@
 const { prisma } = require('../../services/prismaClient');
-var crypto = require('crypto');
+const crypto = require('crypto');
+const jwt = require('json-web-token');
+
 
 const index = async (req, res) => {
 	try {
