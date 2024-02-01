@@ -4,6 +4,22 @@ const passport = require('passport');
 const cors = require('cors');
 const app = express();
 const port = 3008;
+const mysql = require('mysql2');
+const fs = require('fs');
+
+var connection=mysql.createConnection({host:"twitter-sql.mysql.database.azure.com", user:"khais", password:"anthro123!", database:"twitter-node", port:3306, ssl:{ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}});
+
+connection.connect((err) => {
+  if (err) {
+    console.error('Erreur de connexion à MySQL :', err);
+  } else {
+    console.log('Connecté à la base de données MySQL');
+  }
+});
+
+console.log(connection);
+
+
 
 const apiRoutes = require('./app/routes/index');
 
