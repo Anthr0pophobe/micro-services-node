@@ -1,4 +1,6 @@
 const { prisma } = require('../../services/prismaClient');
+const passport = require('passport');
+const LocalStrategy = require('passport-local')
 var crypto = require('crypto');
 
 //permet de verifier si le nom et mdp sont correct.
@@ -16,20 +18,19 @@ const login = async(req, res) =>{
     password
   } } = req;
   try{
-  const dbPassword = await prisma.users.findUnique({
+  const password = await prisma.users.findUnique({
     where: {
       username
     },
   });
   // Effectue le hachage du mot de passe fourni par l'utilisateur
-  const hashedPassword = await crypto.pbkdf2Sync(password, process.env.SALT, 1000, 64, `sha512`).toString(`hex`); 
-  if(dbPassword.password === hashedPassword){
+  if(password){
     return res.json({
 			succes: true,
       data: {
-        id:dbPassword.id,
-        username: dbPassword.username,
-        img_url: dbPassword.img_url
+        id:password.id,
+        username: password.username,
+        img_url: password.img_url
       },
 			message:"Connexion réussi",
 			code: 200,
