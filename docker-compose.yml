@@ -1,0 +1,20 @@
+version: '3.1'
+
+volumes:
+  logs:
+    driver: local
+
+services:
+  mysql:
+   image: mysql
+   restart: always
+   container_name: db-mysql
+   ports:
+    - 3307:3306
+   environment:
+     MYSQL_DATABASE: path
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_USER: user
+     MYSQL_PASSWORD: password
+   volumes:
+    - ./db:/docker-entrypoint-initdb.d
