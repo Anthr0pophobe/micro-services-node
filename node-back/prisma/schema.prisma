@@ -7,18 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model interaction {
-  id      Int    @id @default(autoincrement())
-  id_user Int?
-  id_post Int?
-  like    Int?
-  users   users? @relation(fields: [id_user], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "interaction_ibfk_1")
-  posts   posts? @relation(fields: [id_post], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "interaction_ibfk_2")
-
-  @@index([id_post], map: "id_post")
-  @@index([id_user], map: "id_user")
-}
-
 model posts {
   id           Int           @id @default(autoincrement())
   text         String?       @db.Text
@@ -45,4 +33,16 @@ model users {
   img_url     String        @db.Text
   interaction interaction[]
   posts       posts[]
+}
+
+model interaction {
+  id      Int    @id @default(autoincrement())
+  id_user Int?
+  id_post Int?
+  like    Int?
+  users   users? @relation(fields: [id_user], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "interaction_ibfk_1")
+  posts   posts? @relation(fields: [id_post], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "interaction_ibfk_2")
+
+  @@index([id_post], map: "id_post")
+  @@index([id_user], map: "id_user")
 }

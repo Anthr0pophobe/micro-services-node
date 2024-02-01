@@ -3,6 +3,7 @@ const router = require('express').Router({
 });
 const UserController = require('../controllers/connexion');
 
+// router.get('/', UserController.index);
 router.get('/', UserController.verify);
 router.post('/login', UserController.login);
 
