@@ -1,4 +1,0 @@
-{
-  "appService.defaultWebAppToDeploy": "/subscriptions/5a0ea0e4-e531-4bbb-b8ff-195d64c0f990/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/micro-service-node",
-  "appService.deploySubpath": "."
-}
