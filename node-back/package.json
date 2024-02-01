@@ -5,7 +5,8 @@
   "repository": "https://github.com/Anthr0pophobe/twitterNode",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon app.js --trace-warnings ..."
+    "dev": "nodemon app.js --trace-warnings ...",
+    "start": "node app.js"
   },
   "dependencies": {
     "@prisma/client": "^4.16.1",
