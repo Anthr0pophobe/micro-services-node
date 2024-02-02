@@ -18,14 +18,25 @@ services:
      MYSQL_PASSWORD: password
    volumes:
     - ./db:/docker-entrypoint-initdb.d
-  
-   front:
-    build: ./FRONT
-    container_name: front
+
+  back:
+    build: ./node-back
+    container_name: node-back
     ports: 
-      - 3000:3000
+      - 3008:3008
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5173/"]
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  front:
+    build: ./react-front
+    container_name: react-front
+    ports: 
+      - 80:80
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
       interval: 30s
       timeout: 10s
       retries: 3
