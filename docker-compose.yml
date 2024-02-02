@@ -18,6 +18,7 @@ services:
      MYSQL_PASSWORD: password
    volumes:
     - ./db:/docker-entrypoint-initdb.d
+    - ./db.sql:/docker-entrypoint-initdb.d
 
   back:
     build: ./node-back
@@ -29,6 +30,10 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    links:
+      - mysql
+    depends_on:
+          - mysql
 
   front:
     build: ./react-front
