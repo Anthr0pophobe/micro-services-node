@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon app.js --trace-warnings ...",
     "start": "node app.js"
-  },
+    },
   "dependencies": {
     "@prisma/client": "^4.16.1",
     "cors": "^2.8.5",
