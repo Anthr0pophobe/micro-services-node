@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./react-node-back
+        working-directory: ./node-back
 
     strategy:
       matrix:
