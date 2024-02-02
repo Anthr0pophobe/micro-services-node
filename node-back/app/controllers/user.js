@@ -55,7 +55,8 @@ const create = async (req, res) => {
 			password,
 			img_url
 		} } = req;
-		password = await crypto.pbkdf2Sync(password, process.env.SALT, 1000, 64, `sha512`).toString(`hex`);
+
+		console.log(username);
 		const createUser = await prisma.users.create({
 			data: {
 				password,
