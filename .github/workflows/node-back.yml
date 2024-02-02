@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-          cache-dependency-path: 'react-back/yarn-lock'
+          cache-dependency-path: 'react-back/yarn.lock'
       - name: Install react-scripts
         run: npm install react-scripts@5.0.1
       - run: npm ci
