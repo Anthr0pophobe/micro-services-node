@@ -42,28 +42,28 @@ jobs:
   frontend:
 
     runs-on: ubuntu-latest
-      defaults:
-        run:
-          working-directory: ./react-front
+    defaults:
+      run:
+        working-directory: ./react-front
 
-      strategy:
-        matrix:
-          node-version: [20.x]
-          # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      steps:
-        - uses: actions/checkout@v3
-        - name: Print yarn and node versions
-          run: |
-            yarn --version
-            node --version
-        - name: Use Node ${{ matrix.node-version }}
-          uses: actions/setup-node@v3
-          with:
-            node-version: ${{ matrix.node-version }}
-            cache: 'yarn'
-            cache-dependency-path: 'react-front/yarn.lock'
-        - name: Install react-scripts
-          run: yarn add react-scripts@5.0.1
-        - run: yarn
-        - run: yarn build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Print yarn and node versions
+        run: |
+          yarn --version
+          node --version
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: 'react-front/yarn.lock'
+      - name: Install react-scripts
+      - run: yarn add react-scripts@5.0.1
+      - run: yarn
+      - run: yarn build
