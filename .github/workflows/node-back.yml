@@ -64,6 +64,6 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'react-front/yarn.lock'
       - name: Install react-scripts
-      - run: yarn add react-scripts@5.0.1
+        run: yarn add react-scripts@5.0.1
       - run: yarn
       - run: yarn build
