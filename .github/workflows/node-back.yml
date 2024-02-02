@@ -36,6 +36,6 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'node-back/yarn.lock'
       - name: Install react-scripts
-        run: npm install react-scripts@5.0.1
-      - run: npm ci
-      - run: npm run build --if-present
+        run: yarn add react-scripts@5.0.1
+      - run: yarn
+      - run: yarn build
