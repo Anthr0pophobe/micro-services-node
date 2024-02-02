@@ -38,4 +38,4 @@ jobs:
       - name: Install react-scripts
         run: yarn add react-scripts@5.0.1
       - run: yarn
-      - run: yarn build
+      - run: yarn start
